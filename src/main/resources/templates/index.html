@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>New York Times API Demo</title>
+  <div th:replace="fragments :: header"/>
+
+</head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<div class="container">
+  <div class="bg-light p-4 rounded m-2">
+    <h1 class="display-4">Today's Most Popular Stories</h1>
+    <th:block th:unless="${articleList.isEmpty()}">
+      <div class="row justify-content-center">
+        <div class="col-auto" th:each="article: ${articleList}">
+          <div class="card" style="width: 18rem; height: 34rem;">
+            <img th:unless="${article.imageUrl == null}" th:src="${article.imageUrl}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title" th:text="${article.title}">title</h5>
+              <p class="card-text" th:text="${article.summary}">summary</p>
+              <a th:href="${article.url}" class="btn btn-primary">Read More..</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </th:block>
+  </div>
+</div>
+<div th:replace="fragments :: footer"/>
+</body>
+</html>

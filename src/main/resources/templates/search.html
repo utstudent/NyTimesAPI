@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New York Times API Demo</title>
+    <div th:replace="fragments :: header"/>
+</head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<div class="container">
+    <div class="bg-light p-4 rounded m-2">
+        <h1 class="display-4">Search</h1>
+        <form method="post" action="/search">
+            <div class="form-group">
+                <label>Search</label>
+                <input type="text" class="form-control" name="query" placeholder="Search here">
+            </div>
+            <button type="submit" class="btn btn-primary">Go!</button>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: footer"/>
+</body>
+</html>
